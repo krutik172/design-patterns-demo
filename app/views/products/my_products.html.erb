@@ -1,0 +1,22 @@
+<h1 class="ml-4"><%= current_user.first_name.capitalize %>'s Products</h1>
+
+<div class="container">
+  <div class="row">
+    <% current_user.products.each do |product| %>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+                <% product_decorator = ProductDecorator.new(product) %>
+                <h3 class="card-title"><%= product_decorator.name %></h3>
+                <h5><b>Indian Price</b></h5>
+                <h5 class="card-title"><%= product.price %></h5>
+                <h5><b>Price in Europe</b></h5>
+                <h5 class="card-text"><%= product_decorator.price(:eur).floor %></h5>
+                <h5><b>Price in USD</b></h5>
+                <h5 class="card-text"><%= product_decorator.price(:usd).floor %></h5>  
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

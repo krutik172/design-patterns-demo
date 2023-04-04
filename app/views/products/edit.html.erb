@@ -1,0 +1,11 @@
+<div class="container mt-5">
+    <%= form_with(model: @product, class: "form-") do |f| %>
+        <%= f.label :Name %>
+        <%= f.text_field :product_name, class: "form-control", value: @product.product_name %>
+
+        <%= f.label :Price %>
+        <%= f.text_field :price, class: "form-control", value: @product.price %>
+
+        <%= f.submit "Update Product", class: "btn btn-primary mt-3" %>
+    <% end %>
+</div>

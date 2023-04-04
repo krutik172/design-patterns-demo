@@ -1,0 +1,18 @@
+<p class="display-4 ml-5">Products</p>
+
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.product_name %></h5>
+              <p class="card-text"><%= product.price.to_i %></p>
+              <p class="card-text"><%= product.status %></p>
+              <%= button_to "Show Product",product_path(product.id), class: "btn btn-primary", method: :get %>         
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
