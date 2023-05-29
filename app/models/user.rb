@@ -6,8 +6,13 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :payments
+  after_create :welcome_email
 
   def username
     EmailValues.new(email).name
+  end
+
+  def welcome_email
+    UserMailer.welcome_email(self).deliver_now
   end
 end

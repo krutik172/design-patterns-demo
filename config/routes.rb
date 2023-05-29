@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "products#index"
-  devise_for :user
+  devise_for :users, controllers: { registrations: 'registrations' }
   resources :products do
     member do
       get 'checkout'

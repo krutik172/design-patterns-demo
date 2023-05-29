@@ -1,4 +1,3 @@
-<div id="notice"><%= notice %></div>
 <div class="container">
     <h1>Product <%= @product.product_name %></h1>
     <p>Status : <%= @product.status %> </p>
@@ -7,10 +6,11 @@
     <p> price <%= @product.price.to_i %></p>
     <br/>
     <% unless current_user.products.include?(@product) %>
-        <%= link_to 'Buy Now', checkout_product_path(@product), class: 'btn btn-primary' if @product.Available? %>
+        <%= link_to 'Buy Now', checkout_product_path(@product), class: 'btn btn-outline-primary mb-3' if @product.Available? %>
     <% end %>
     <%= link_to "Edit Product", edit_product_path(@product), class: "btn btn-outline-success mb-3" %>
     <%= button_to "Delete Product", product_path(@product),
-    data:{confirm:"ARE YOU SURE?"}, :method => :delete, class: "btn btn-outline-danger sign-out-btn" if current_user.products.include?(@product) %>
+                                    data:{confirm:"ARE YOU SURE?"}, 
+                                    :method => :delete, class: "btn btn-outline-danger sign-out-btn" if current_user.products.include?(@product) %>
         
 </div>

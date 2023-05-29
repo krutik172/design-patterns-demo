@@ -61,12 +61,13 @@ class ProductsController < ApplicationController
     end
 
     def stripe_success
-      @product = Product.find(params[:id])
-      @payment = current_user.payment.create(product_id: params[:id], amount: @product.price)
-      @product.status = :Sold
-      @product.save!
-      @product.notifyUser(@product)
-      redirect_to product_path(@product), notice: "Purchase Successful"
+      result = ProductPurchase.call(product_id: params[:id],current_user: current_user)
+    
+      if result.success?
+        redirect_to product_path(result.product), notice: "Purchase Successful"
+      else
+        redirect_to product_path(params[:id]), alert: result.message
+      end
     end
 
     def stripe_cancel

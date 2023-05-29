@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'pry'
 gem 'stripe-rails'
+gem 'interactor'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "font-awesome-sass", "~> 6.3.0"
