@@ -1,8 +1,6 @@
 class ProductQuery
-    def call(product)
-        product
-          .where(status: "Sold")
-          .where('price > ?', 10000)
+    def call
+        Product.where(status: "Sold").where('price > ?', 10000)
     end
 
     def user_products(user)
