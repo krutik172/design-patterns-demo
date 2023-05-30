@@ -10,5 +10,4 @@ class ProductPurchase
         context.product = product
         context.payment = payment
     end
-
 end

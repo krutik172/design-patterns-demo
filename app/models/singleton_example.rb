@@ -34,4 +34,5 @@ end
 
 # singleton_instance = SingletonExample.instance
 # puts singleton_instance.some_data 
-# another_instance = SingletonExample.new 
+# another_instance = SingletonExample.new
+ 
